@@ -3,7 +3,7 @@ const fs = require('fs');
 const _ = require('lodash');
 
 const loadProviders = (options) => {
-    
+
     let providers = {};
 
     const selectedProviders = _.without(options.enabledProviders, 'Provider');
@@ -17,17 +17,14 @@ const loadProviders = (options) => {
 module.exports = (options) => {
 
     const loadedProviders = loadProviders({
-        'enabledProviders': ['Youtube']
+        'enabledProviders': ['Twitter', 'Youtube']
     });
-    
+
     return async tree => {
 
-        _.each(loadedProviders, function (providerClass, providerName) {
+        _.each(loadedProviders, function(providerClass) {
             var Provider = new providerClass();
-
-            const embedLinks = Provider.getEmbedLinks(tree);
-            Provider.convertEmbedLinks(embedLinks, options);
+            await Provider.convertEmbedLinks(tree, options);
         });
-
-    }    
+    }
 }
