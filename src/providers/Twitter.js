@@ -1,12 +1,14 @@
 const Provider = require('./Provider');
+const fetch = require('node-fetch');
 
 class Twitter extends Provider {
     constructor() {
-        this.idPosition = 1;
+        super()
         this.regexp = /https:\/\/twitter.com\/.*\/.*\/([0-9]+)/i;
+        this.idPosition = 1;
     }
 
-    getEmbedData(embedLink, options) {
+    async getEmbedData(embedLink, options) {
         const embedOptions = {
             url: embedLink,
             hide_thread: options.hideThread !== false ? '1' : '0',
@@ -22,8 +24,10 @@ class Twitter extends Provider {
         }
         const params = Object.entries(embedOptions).map(([key, val]) => `${key}=${val}`).join('&')
         const apiUrl = `https://publish.twitter.com/oembed?${params}`
+
         const response = await fetch(apiUrl)
-        return await response.json()
+        const embedData = await response.json()
+        return embedData.html
     }
 }
 
