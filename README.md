@@ -1,2 +1,2 @@
-# gridsome-plugin-remark-oembed
-Gridsome Remark plugin to use oembed
+# gridsome-plugin-remark-embed
+Gridsome Remark plugin to use embed
