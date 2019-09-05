@@ -1,9 +1,13 @@
+const fs = require('fs');
+const path = require('path');
+const visit = require('unist-util-visit');
+
 class Provider {
     constructor() {
         this.regexp = '';
         this.idPosition = 1;
         this.template = null;
-        
+
     }
 
     isEmbedLink(node) {
@@ -18,8 +22,6 @@ class Provider {
     }
 
     getEmbedLinks(tree) {
-        const visit = require('unist-util-visit');
-
         const nodes = [];
         visit(tree, 'paragraph', (node) => {
             if (this.isEmbedLink(node)) {
@@ -53,13 +55,13 @@ class Provider {
             return a ? a : b;
         });
 
-        const embedTemplate = require(this.template);
+        const embedTemplate = fs.readFileSync(path.resolve(this.template), 'utf8')
 
         const template = Handlebars.compile(embedTemplate);
         return template({
-            id : this.getEmbedId(embedLink),
-            link : embedLink,
-            options : options
+            id: this.getEmbedId(embedLink),
+            link: embedLink,
+            options: options
         });
 
 

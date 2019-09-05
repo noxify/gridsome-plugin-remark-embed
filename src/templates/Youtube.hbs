@@ -1,10 +1,8 @@
-<div style="width: {{ getValue options.width '100%'}}; margin: 0 {{ getValue options.align '0' }};">
-        <div style="position: relative; padding-bottom: 56.25%; padding-top: 25px; height: 0;">
-            <iframe 
-                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" 
-                src="https://www.youtube{{ if options.nocookie }}-nocookie{{ /if}}.com/embed/{{ embedId }}" 
-                allow="autoplay; encrypted-media"
-                allowfullscreen >
-            </iframe>
+<div style="width: {{getValue options.width '100%'}}; margin: 0 {{getValue options.align '0'}};">
+    <div style="position: relative; padding-bottom: 56.25%; padding-top: 25px; height: 0;">
+        <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+            src="https://www.youtube{{#if options.nocookie}}-nocookie{{/if}}.com/embed/{{embedId}}"
+            allow="autoplay; encrypted-media" allowfullscreen>
+        </iframe>
     </div>
 </div>
