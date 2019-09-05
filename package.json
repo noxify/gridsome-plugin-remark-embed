@@ -1,0 +1,35 @@
+{
+  "name": "@noxify/gridsome-plugin-remark-embed",
+  "version": "1.0.0",
+  "description": "Gridsome Remark plugin to embed external stuff like github gist, twitter feeds, youtube videos etc.",
+  "main": "src/embed.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Marcus Reinhardt <webstone@gmail.com>",
+  "homepage": "https://github.com/noxify/gridsome-plugin-remark-embed",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/noxify/gridsome-plugin-remark-embed.git"
+  },
+  "bugs": {
+    "url": "https://github.com/noxify/gridsome-plugin-remark-embed/issues"
+  },
+  "license": "MIT",
+  "keywords": [
+    "vue",
+    "remark",
+    "gridsome",
+    "gridsome-plugin",
+    "markdown",
+    "youtube",
+    "gist",
+    "twitter",
+    "embed"
+  ],
+  "dependencies": {
+    "unist-util-visit": "^1.4.0",
+    "lodash": "4.17.15",
+    "handlebars" : "^4.2.0"
+  }
+}
