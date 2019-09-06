@@ -1,6 +1,5 @@
 const fs = require('fs');
 const path = require('path');
-const visit = require('unist-util-visit');
 
 class Provider {
     constructor() {
@@ -15,37 +14,16 @@ class Provider {
             this.regexp.test(node.children[0].url)
     }
 
+    getEmbedLink(node) {
+        return node.children[0].url;
+    }
+
     getEmbedId(url) {
         const res = url.match(this.regexp);
         return (res) ? res[this.idPosition] : false;
     }
 
-    async convertEmbedLinks(tree, options) {
-        const nodes = [];
-
-        visit(tree, 'paragraph', (node) => {
-            if (this.isEmbedLink(node)) {
-                nodes.push([node, node.children[0].url])
-            }
-        });
-
-        for (let i = 0; i < nodes.length; i++) {
-            const nt = nodes[i];
-            const node = nt[0];
-            const embedLink = nt[1];
-            try {
-                const embedData = await this.getEmbedData(embedLink, options);
-                node.type = 'html';
-                node.value = embedData;
-            } catch (err) {
-                console.log(`\nfailed to get data for ${embedLink}\n`, err)
-            }
-        }
-
-        return tree;
-    }
-
-    getEmbedData(embedLink, options) {
+    async getEmbedData(embedLink, options) {
         const Handlebars = require('handlebars');
 
         //powered by https://stackoverflow.com/a/37460266/2769836
@@ -56,7 +34,7 @@ class Provider {
         const embedTemplate = fs.readFileSync(path.resolve(this.template), 'utf8')
 
         const template = Handlebars.compile(embedTemplate);
-        
+
         return template({
             id: this.getEmbedId(embedLink),
             link: embedLink,
