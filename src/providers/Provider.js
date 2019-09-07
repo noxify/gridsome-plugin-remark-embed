@@ -36,11 +36,15 @@ class Provider {
         return Handlebars;
     }
 
+    getTemplate() {
+        const embedTemplate = fs.readFileSync(path.resolve(this.template), 'utf8')
+        const template = this.getTemplateEngine().compile(embedTemplate);
+        return template;
+    }
+
     async getEmbedData(embedLink) {
         
-        const embedTemplate = fs.readFileSync(path.resolve(this.template), 'utf8')
-
-        const template = this.getTemplateEngine().compile(embedTemplate);
+        const template = this.getTemplate();
 
         return template({
             id: this.getEmbedId(embedLink),

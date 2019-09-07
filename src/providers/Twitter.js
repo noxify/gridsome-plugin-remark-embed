@@ -7,6 +7,7 @@ class Twitter extends Provider {
         super(options)
         this.regexp = /https:\/\/twitter.com\/.*\/.*\/([0-9]+)/i;
         this.idPosition = 1;
+        this.template = __dirname + '/../templates/Twitter.hbs';
         this.options = _.defaults(options, {
             hideThread: false,
             hideMedia: false,
