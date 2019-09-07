@@ -45,7 +45,7 @@ class Twitter extends Provider {
         return template({
             id: this.getEmbedId(embedLink),
             link: embedLink,
-            embedData: embedData,
+            embedData: embedData.html,
             options: this.options
         });
     }
