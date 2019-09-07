@@ -2,10 +2,11 @@ const fs = require('fs');
 const path = require('path');
 
 class Provider {
-    constructor() {
+    constructor(options) {
         this.regexp = '';
         this.idPosition = 1;
         this.template = null;
+        this.options = options;
     }
 
     isEmbedLink(node) {
@@ -23,7 +24,7 @@ class Provider {
         return (res) ? res[this.idPosition] : false;
     }
 
-    async getEmbedData(embedLink, options) {
+    async getEmbedData(embedLink) {
         const Handlebars = require('handlebars');
 
         //powered by https://stackoverflow.com/a/37460266/2769836
@@ -38,7 +39,7 @@ class Provider {
         return template({
             id: this.getEmbedId(embedLink),
             link: embedLink,
-            options: options
+            options: this.options
         });
     }
 }

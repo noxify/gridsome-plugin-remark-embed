@@ -2,23 +2,33 @@ const Provider = require('./Provider');
 const fetch = require('node-fetch');
 
 class Twitter extends Provider {
-    constructor() {
-        super()
+    constructor(options) {
+        super(options)
         this.regexp = /https:\/\/twitter.com\/.*\/.*\/([0-9]+)/i;
         this.idPosition = 1;
+        this.options = _.defaults({
+            hideThread: false,
+            hideMedia: false,
+            align: '',
+            theme: '',
+            linkColor: '',
+            widgetType: '',
+            dnt: true,
+            omitScript: true
+        }, options);
     }
 
-    async getEmbedData(embedLink, options) {
+    async getEmbedData(embedLink) {
         const embedOptions = {
             url: embedLink,
-            hide_thread: options.hideThread !== false ? '1' : '0',
-            align: options.align || '',
-            hide_media: options.hideMedia ? '1' : '0',
-            theme: options.theme || '',
-            link_color: options.linkColor || '',
-            widget_type: options.widgetType || '',
-            omit_script: true,
-            dnt: true,
+            hide_thread: this.options.hideThread !== false ? '1' : '0',
+            align: this.options.align || '',
+            hide_media: this.options.hideMedia !== false ? '1' : '0',
+            theme: this.options.theme || '',
+            link_color: this.options.linkColor || '',
+            widget_type: this.options.widgetType || '',
+            omit_script: this.options.omit_script,
+            dnt: this.options.dnt,
             limit: 20,
             chrome: 'nofooter'
         }

@@ -15,22 +15,6 @@ const loadProviders = (options) => {
     return providers;
 }
 
-/*
-module.exports = function(options) {
-
-    const loadedProviders = loadProviders({
-        'enabledProviders': ['Twitter', 'Youtube']
-    });
-
-    return async tree => {
-
-        _.each(loadedProviders, function(providerClass) {
-            var Provider = new providerClass();
-            Provider.convertEmbedLinks(tree, options);
-        });
-    }
-}*/
-
 module.exports = function (options) {
 
     return async function transform(tree) {
@@ -40,7 +24,7 @@ module.exports = function (options) {
         visit(tree, 'paragraph', node => embedLinks.push(node))
 
         const loadedProviders = loadProviders({
-            'enabledProviders': ['Twitter', 'Youtube']
+            'enabledProviders': options.enabledProviders || []
         });
 
         for (const node of embedLinks) {
@@ -48,10 +32,11 @@ module.exports = function (options) {
 
             try {
                 for (const providerName in loadedProviders) {
-                    var Provider = new loadedProviders[providerName]();
+                    const providerOptions = options[providerName] || {};
+                    let Provider = new loadedProviders[providerName](providerOptions);
                     if (Provider.isEmbedLink(node)) {
                         const embedLink = Provider.getEmbedLink(node);
-                        embedCode = await Provider.getEmbedData(embedLink, options);
+                        embedCode = await Provider.getEmbedData(embedLink);
                         break;
                     }
                 };
