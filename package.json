@@ -2,7 +2,7 @@
   "name": "@noxify/gridsome-plugin-remark-embed",
   "version": "1.0.0",
   "description": "Gridsome Remark plugin to embed external stuff like github gist, twitter feeds, youtube videos etc.",
-  "main": "src/embed.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

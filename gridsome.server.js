@@ -9,7 +9,7 @@ const loadProviders = (options) => {
 
     const selectedProviders = _.without(options.enabledProviders, 'Provider');
     _.each(selectedProviders, function (providerName) {
-        providers[providerName] = require('./providers/' + providerName);
+        providers[providerName] = require('./src/providers/' + providerName);
     });
 
     return providers;
