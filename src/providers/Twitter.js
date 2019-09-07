@@ -9,10 +9,10 @@ class Twitter extends Provider {
         this.idPosition = 1;
         this.template = __dirname + '/../templates/Twitter.hbs';
         this.options = _.defaults(options, {
-            hideThread: false,
+            hideConversation: false,
             hideMedia: false,
-            align: '',
-            theme: '',
+            align: 'none',
+            theme: 'light',
             linkColor: '',
             widgetType: '',
             dnt: true,
@@ -23,13 +23,13 @@ class Twitter extends Provider {
     async getEmbedData(embedLink) {
         const embedOptions = {
             url: embedLink,
-            hide_thread: this.options.hideThread !== false ? '1' : '0',
+            hide_thread: this.options.hideConversation !== false ? '1' : '0',
             align: this.options.align || '',
             hide_media: this.options.hideMedia !== false ? '1' : '0',
             theme: this.options.theme || '',
             link_color: this.options.linkColor || '',
             widget_type: this.options.widgetType || '',
-            omit_script: this.options.omit_script,
+            omit_script: this.options.omitScript !== false ? '1' : '0',
             dnt: this.options.dnt,
             limit: 20,
             chrome: 'nofooter'

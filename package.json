@@ -31,6 +31,9 @@
     "unist-util-visit": "^1.4.0",
     "lodash": "4.17.15",
     "handlebars" : "^4.2.0",
-    "node-fetch" : "^2.6.0"
+    "node-fetch" : "^2.6.0",
+    "cheerio": "^1.0.0",
+    "parse-numeric-range" : "^0.0.2",
+    "querystring" : "^0.2.0"
   }
 }
