@@ -6,11 +6,11 @@ class Gist extends Provider {
         this.regexp = /https:\/\/gist.github.com\/(.*)\/([a-f0-9]+)/i;
         this.idPosition = 2;
         this.template = __dirname + '/../templates/Gist.hbs';
-        this.options = _.defaults({
+        this.options = _.defaults(options, {
             nocookie: true,
             width: '100%',
             align: 'auto'
-        }, options);
+        });
     }
 }
 

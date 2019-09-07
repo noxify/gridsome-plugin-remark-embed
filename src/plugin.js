@@ -28,7 +28,7 @@ module.exports = function (options) {
         });
 
         for (const node of embedLinks) {
-            let embedCode;
+            let embedData;
 
             try {
                 for (const providerName in loadedProviders) {
@@ -36,7 +36,7 @@ module.exports = function (options) {
                     let Provider = new loadedProviders[providerName](providerOptions);
                     if (Provider.isEmbedLink(node)) {
                         const embedLink = Provider.getEmbedLink(node);
-                        embedCode = await Provider.getEmbedData(embedLink);
+                        embedData = await Provider.getEmbedData(embedLink);
                         break;
                     }
                 };
@@ -44,9 +44,9 @@ module.exports = function (options) {
                 console.log(err);
             }
 
-            if (embedCode) {
+            if (embedData) {
                 node.type = 'html'
-                node.value = embedCode
+                node.value = embedData
             }
         }
     }

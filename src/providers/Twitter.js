@@ -7,7 +7,7 @@ class Twitter extends Provider {
         super(options)
         this.regexp = /https:\/\/twitter.com\/.*\/.*\/([0-9]+)/i;
         this.idPosition = 1;
-        this.options = _.defaults({
+        this.options = _.defaults(options, {
             hideThread: false,
             hideMedia: false,
             align: '',
@@ -16,7 +16,7 @@ class Twitter extends Provider {
             widgetType: '',
             dnt: true,
             omitScript: true
-        }, options);
+        });
     }
 
     async getEmbedData(embedLink) {
@@ -38,7 +38,17 @@ class Twitter extends Provider {
 
         const response = await fetch(apiUrl)
         const embedData = await response.json()
-        return embedData.html
+        
+        const embedTemplate = fs.readFileSync(path.resolve(this.template), 'utf8')
+
+        const template = this.getTemplateEngine().compile(embedTemplate);
+
+        return template({
+            id: this.getEmbedId(embedLink),
+            link: embedLink,
+            embedData: embedData,
+            options: this.options
+        });
     }
 }
 

@@ -25,7 +25,7 @@ class Provider {
         return (res) ? res[this.idPosition] : false;
     }
 
-    async getEmbedData(embedLink) {
+    getTemplateEngine() {
         const Handlebars = require('handlebars');
 
         //powered by https://stackoverflow.com/a/37460266/2769836
@@ -33,13 +33,19 @@ class Provider {
             return a ? a : b;
         });
 
+        return Handlebars;
+    }
+
+    async getEmbedData(embedLink) {
+        
         const embedTemplate = fs.readFileSync(path.resolve(this.template), 'utf8')
 
-        const template = Handlebars.compile(embedTemplate);
+        const template = this.getTemplateEngine().compile(embedTemplate);
 
         return template({
             id: this.getEmbedId(embedLink),
             link: embedLink,
+            embedData: '',
             options: this.options
         });
     }
