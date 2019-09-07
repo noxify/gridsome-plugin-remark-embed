@@ -28,7 +28,7 @@
     "embed"
   ],
   "dependencies": {
-    "unist-util-visit": "^1.4.0",
+    "unist-util-visit": "^2.0.0",
     "lodash": "4.17.15",
     "handlebars" : "^4.2.0",
     "node-fetch" : "^2.6.0",
