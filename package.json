@@ -1,6 +1,6 @@
 {
   "name": "@noxify/gridsome-plugin-remark-embed",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Gridsome Remark plugin to embed external stuff like github gist, twitter feeds, youtube videos etc.",
   "main": "src/plugin.js",
   "scripts": {
@@ -16,6 +16,9 @@
     "url": "https://github.com/noxify/gridsome-plugin-remark-embed/issues"
   },
   "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
   "keywords": [
     "vue",
     "remark",
