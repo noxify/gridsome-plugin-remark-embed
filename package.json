@@ -16,6 +16,9 @@
     "url": "https://github.com/noxify/gridsome-plugin-remark-embed/issues"
   },
   "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
   "keywords": [
     "vue",
     "remark",
