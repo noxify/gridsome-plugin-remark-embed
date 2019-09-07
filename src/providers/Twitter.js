@@ -1,5 +1,6 @@
 const Provider = require('./Provider');
 const fetch = require('node-fetch');
+const _ = require('lodash');
 
 class Twitter extends Provider {
     constructor(options) {

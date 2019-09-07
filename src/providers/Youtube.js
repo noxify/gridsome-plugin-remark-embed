@@ -1,4 +1,5 @@
 const Provider = require('./Provider');
+const _ = require('lodash');
 
 class Youtube extends Provider {
     constructor(options) {

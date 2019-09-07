@@ -1,5 +1,5 @@
 const Provider = require('./Provider');
-
+const _ = require('lodash');
 class Gist extends Provider {
     constructor(options) {
         super(options);
