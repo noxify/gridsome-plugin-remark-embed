@@ -1,0 +1,6 @@
+{{#if options.iframe}}
+<iframe width="{{getValue options.width '100%'}}" height="{{getValue options.height '300'}}"
+    src="{{widgetLink}}" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
+{{else}}
+<script async src="{{widgetLink}}"></script>
+{{/if}}
