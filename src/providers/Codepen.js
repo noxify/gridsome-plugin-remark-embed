@@ -72,6 +72,7 @@ class Codepen extends Provider {
             id: this.getEmbedId(embedLink),
             penUser: this.getPenUser(embedLink),
             link: embedLink,
+            tabs : tabs,
             embedData: '',
             frameUrl: frameUrl,
             options: this.options
