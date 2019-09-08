@@ -1,5 +1,6 @@
 const Provider = require('./Provider');
 const _ = require('lodash');
+const querystring = require('querystring');
 
 class Soundcloud extends Provider {
     constructor(options) {
@@ -8,6 +9,8 @@ class Soundcloud extends Provider {
         this.template = __dirname + '/../templates/Soundcloud.hbs';
         this.idPosition = 4;
         this.options = _.defaults(options, {
+            width: '100%',
+            height: '300',
             color: '#ff5500',
             auto_play: false,
             hide_related: false,
@@ -21,8 +24,7 @@ class Soundcloud extends Provider {
 
     getWidgetLink(embedLink) {
         this.options['url'] = embedLink;
-        const urlOptions = querystring.stringify(this.options);
-        return querystring.encode(urlOptions);
+        return querystring.encode(querystring.stringify(this.options));
     }
 
     async getEmbedData(embedLink) {
