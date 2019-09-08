@@ -18,7 +18,8 @@ class Soundcloud extends Provider {
             show_user: true,
             show_reposts: false,
             show_teaser: true,
-            visual: true
+            visual: true,
+            single_active: true
         });
     }
 

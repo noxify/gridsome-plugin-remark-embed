@@ -11,6 +11,7 @@ class Codepen extends Provider {
         this.idPosition = 4;
         this.options = _.defaults(options, {
             iframe: false,
+            height: '265',
             theme: '0',
             preview: true,
             tabs: ['result']

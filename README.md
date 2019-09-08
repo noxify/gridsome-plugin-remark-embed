@@ -6,6 +6,9 @@ Gridsome Remark plugin to embed external stuff into your gridsome site.
 * Youtube - Based on https://github.com/rylandg/gridsome-plugin-remark-youtube 
 * Twitter - Based on https://gridsome.org/plugins/gridsome-plugin-remark-twitter
 * Github Gist - Ported from https://github.com/weirdpattern/gatsby-remark-embed-gist
+* JSFiddle
+* Soundcloud
+* Codepen - Ported from https://github.com/weknowinc/gatsby-remark-codepen
 
 # Installation
 
@@ -39,13 +42,15 @@ module.exports = {
 
 # Configuration
 
-| Name             | Type     | Description                               | Allowed Values               | Default                 |
-| ---------------- | -------- | ----------------------------------------- | ---------------------------- | ----------------------- |
-| enabledProviders | `array`  | Defines which embed providers are enabled | `Youtube`, `Twitter`, `Gist` | `[]`                    |
-| Youtube          | `Object` | Configuration for Provider: Youtube       | see configuration below      | see configuration below |
-| Twitter          | `Object` | Configuration for Provider: Twitter       | see configuration below      | see configuration below |
-| Gist             | `Object` | Configuration for Provider: Gist          | see configuration below      | see configuration below |
-
+| Name             | Type     | Description                               | Allowed Values                                                    | Default                 |
+| ---------------- | -------- | ----------------------------------------- | ----------------------------------------------------------------- | ----------------------- |
+| enabledProviders | `array`  | Defines which embed providers are enabled | `Youtube`, `Twitter`, `Gist`, `Codepen`, `Soundcloud`, `JSFiddle` | `[]`                    |
+| Youtube          | `Object` | Configuration for Provider: Youtube       | see configuration below                                           | see configuration below |
+| Twitter          | `Object` | Configuration for Provider: Twitter       | see configuration below                                           | see configuration below |
+| Gist             | `Object` | Configuration for Provider: Gist          | see configuration below                                           | see configuration below |
+| Codepen          | `Object` | Configuration for Provider: Codepen       | see configuration below                                           | see configuration below |
+| Soundcloud       | `Object` | Configuration for Provider: Soundcloud    | see configuration below                                           | see configuration below |
+| JSFiddle         | `Object` | Configuration for Provider: JSFiddle      | see configuration below                                           | see configuration below |
 
 ## Youtube
 
@@ -70,6 +75,79 @@ module.exports = {
 ## Gist
 
 No configuration needed for this provider.
+
+### Show only a specific file
+
+To show only one file, you can use the following syntax inside your markdown file:
+
+```
+https://gist.github.com/<user>/<gistid>#file1.js
+or
+https://gist.github.com/<user>/<gistid>?file=file1.js
+```
+
+### Code Highlighting
+
+To highlight one or more lines in a gist file, you can use the following syntax inside your markdown file:
+
+```
+https://gist.github.com/<user>/<gistid>?file=file1.js&highlights=1,3,5-10,15-20
+```
+
+## Codepen
+
+| Name    | Type             | Description                                                                                                             | Allowed Values                | Default  |
+| ------- | ---------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------- | -------- |
+| iframe  | `boolean`        | Use iframe a embed method                                                                                               | `true`, `false`               | `false`  |
+| height  | `string` / `int` | Sets the height for each pen. Value without `px` or `%`                                                                 | `0-9999`                      | `265`    |
+| theme   | `string`         | Sets the theme for the pens                                                                                             | `0`, `dark`, `light`          | `0`      |
+| preview | `boolean`        | Defines if the pen is running directly or after the click on "run pen"                                                  | `true`, `false`               | `true`   |
+| tabs    | `array`          | Defines which tabs should be shown.<br>***Info:*** Codepen allows only result + html/js/css and not result + html + css | `result`, `html`, `js`, `css` | `result` |
+
+### Tab Customizing for one pen
+
+To overwrite the default tab configuration, you can use the following syntac inside your markdown file:
+
+```
+https://<codepenurl>?tabs=result,html
+```
+
+## Soundcloud
+
+| Name          | Type             | Description                                                                               | Allowed Values               | Default   |
+| ------------- | ---------------- | ----------------------------------------------------------------------------------------- | ---------------------------- | --------- |
+| width         | `string`         | Sets the maximum width for each track                                                     | valid width value e.g. 500px | 100%      |
+| height        | `string` / `int` | Sets the height for each pen. Value without `px` or `%`                                   | `0-9999`                     | `300`     |
+| color         | `string`         | Color play button and other controls. e.g. “#0066CC”                                      | Valid HEX Value with `#`     | `#ff5500` |
+| auto_play     | `boolean`        | Start playing the item automatically                                                      | `true`, `false`              | `false`   |
+| hide_related  | `boolean`        | Show/Hide related tracks                                                                  | `true`, `false`              | `false`   |
+| show_comments | `boolean`        | Whether the player displays timed comments                                                | `true`, `false`              | `true`    |
+| show_user     | `boolean`        | Show/Hide the uploader name                                                               | `true`, `false`              | `true`    |
+| show_reposts  | `boolean`        | Show/Hide reposts                                                                         | `true`, `false`              | `false`   |
+| show_teaser   | `boolean`        | Show/Hide the teaser of an track                                                          | `true`, `false`              | `true`    |
+| visual        | `boolean`        | Show/Hide the image of an track                                                           | `true`, `false`              | `true`    |
+| single_active | `boolean`        | If set to false the multiple players on the page won’t toggle each other off when playing | `true`, `false`              | `true`    |
+
+## JSFiddle
+
+| Name             | Type       | Description                                        | Allowed Values                | Default                           |
+| ---------------- | ---------- | -------------------------------------------------- | ----------------------------- | --------------------------------- |
+| width            | `string`   | Sets the maximum width for each fiddle             | valid width value e.g. 500px  | 100%                              |
+| height           | `int`      | Sets the height for each fiddle                    | `0-9999`                      | `300`                             |
+| iframe           | `booleant` | Use iframe instead of `<script>` to embed a fiddle | `true`, `false`               | `true`                            |
+| secureConnection | `boolean`  | Use `https` instead of `http`                      | `true`, `false`               | `false`                           |
+| tabs             | `array`    | Defines which tabs should be shown                 | `js`, `html`, `css`, `result` | `['js', 'html', 'css', 'result']` |
+| theme            | `string`   | Defines the theem for each fiddle                  | `light`, `dark`               | `light`                           |
+
+
+### Tab Customizing for one fiddle
+
+To overwrite the default tab configuration, you can use the following syntac inside your markdown file:
+
+```
+https://<fiddleurl>?tabs=result,html
+```
+
 
 ## Example
 
@@ -116,6 +194,14 @@ The Twitter embed requires the following external asset:
 https://platform.twitter.com/widgets.js
 ```
 
+## Codepen
+
+The Codepen embed requires the following external asset:
+
+```
+https://static.codepen.io/assets/embed/ei.js
+```
+
 ## Gist
 
 The Gist embed requires the following external asset:
@@ -146,6 +232,7 @@ Special thanks goes to
 * https://github.com/weirdpattern
 * https://github.com/rylandg
 * https://github.com/danvega
+* https://github.com/weknowinc
 * https://github.com/gridsome
 
 # Todos
