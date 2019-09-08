@@ -43,7 +43,7 @@ class Provider {
     }
 
     async getEmbedData(embedLink) {
-        
+
         const template = this.getTemplate();
 
         return template({
