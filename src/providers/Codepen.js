@@ -6,7 +6,7 @@ const querystring = require('querystring');
 class Codepen extends Provider {
     constructor(options) {
         super(options);
-        this.regexp = /https:\/\/(www\.)?codepen\.io\/(([A-Za-z0-9-_?=]*)\/pen\/([A-Za-z0-9-_?=]*))/i;
+        this.regexp = /https:\/\/(www\.)?codepen\.io\/(([A-Za-z0-9-_?=]*)\/pen\/([A-Za-z0-9-_=]*))(\?.*)?/i;
         this.template = __dirname + '/../templates/Codepen.hbs';
         this.idPosition = 4;
         this.options = _.defaults(options, {
