@@ -21,7 +21,9 @@ module.exports = function (options) {
 
         const embedLinks = []
 
-        visit(tree, 'paragraph', node => embedLinks.push(node))
+        visit(tree, 'paragraph', node => {
+            embedLinks.push(node)
+        })
 
         const loadedProviders = loadProviders({
             'enabledProviders': options.enabledProviders || []
@@ -34,6 +36,7 @@ module.exports = function (options) {
                 for (const providerName in loadedProviders) {
                     const providerOptions = options[providerName] || {};
                     let Provider = new loadedProviders[providerName](providerOptions);
+
                     if (Provider.isEmbedLink(node)) {
                         const embedLink = Provider.getEmbedLink(node);
                         embedData = await Provider.getEmbedData(embedLink);
