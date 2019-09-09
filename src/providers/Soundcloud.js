@@ -10,7 +10,7 @@ class Soundcloud extends Provider {
         this.idPosition = 4;
         this.options = _.defaults(options, {
             width: '100%',
-            height: '300',
+            height: '81',
             color: '#ff5500',
             auto_play: false,
             hide_related: false,
@@ -23,9 +23,25 @@ class Soundcloud extends Provider {
         });
     }
 
+    getCustomHeight(embedLink) {
+        const [, qs] = embedLink.split(/[?]/);
+
+        if (qs == null) return [];
+
+        const query = querystring.parse(qs);
+
+        let height = this.options.height;
+        if (typeof query.height === "string") {
+            height = query.height;
+        }
+
+        return height;
+    }
+
     getWidgetLink(embedLink) {
+        this.options.height = this.getCustomHeight(embedLink);
         this.options['url'] = embedLink;
-        return querystring.encode(querystring.stringify(this.options));
+        return querystring.stringify(this.options);
     }
 
     async getEmbedData(embedLink) {
