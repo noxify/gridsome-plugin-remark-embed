@@ -4,7 +4,7 @@ const _ = require('lodash');
 class Giphy extends Provider {
     constructor(options) {
         super(options);
-        this.regexp = /(?:https?:\/\/)?(?:(?:(?:www\.?)?youtube(?:-nocookie)?\.com(?:\/(?:embed\/|watch\/|(?:playlist\?(?:list=))|(?:watch\?(?:v=))))?)|(?:youtu\.be\/?))(.*)/i;
+        this.regexp = /https?:\/\/(\?|media\.giphy\.com\/media\/([^ /\n]+)\/giphy\.gif|i\.giphy\.com\/([^ /\n]+)\.gif|giphy\.com\/gifs\/(?:.*-)?([^ /\n]+))/i;
         this.template = __dirname + '/../templates/Giphy.hbs';
         this.idPosition = 1;
         this.options = _.defaults(options, {
