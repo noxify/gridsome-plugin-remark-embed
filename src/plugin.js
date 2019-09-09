@@ -37,6 +37,10 @@ module.exports = function (options) {
                     const providerOptions = options[providerName] || {};
                     let Provider = new loadedProviders[providerName](providerOptions);
 
+                    if (providerOptions.template) {
+                        Provider.setCustomTemplate(providerOptions.template);
+                    }
+
                     if (Provider.isEmbedLink(node)) {
                         const embedLink = Provider.getEmbedLink(node);
                         embedData = await Provider.getEmbedData(embedLink);

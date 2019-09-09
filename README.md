@@ -51,6 +51,30 @@ module.exports = {
 | Codepen          | `Object` | Configuration for Provider: Codepen       | see configuration below                                           | see configuration below |
 | Soundcloud       | `Object` | Configuration for Provider: Soundcloud    | see configuration below                                           | see configuration below |
 | JSFiddle         | `Object` | Configuration for Provider: JSFiddle      | see configuration below                                           | see configuration below |
+| Giphy            | `Object` | Configuration for Provider: Giphy         | see configuration below                                           | see configuration below |
+
+## Custom Provider Template
+
+You can overwrite the default provider template.
+Just add the `template` property with the path to the `.hbs` template inside your provider config.
+
+```js
+remark: {
+  plugins: [
+    [ '@noxify/gridsome-plugin-remark-embed', {
+        'enabledProviders' : ['Youtube', 'Twitter', 'Gist'],
+        'Youtube' : {
+            template: './src/providerTemplates/Youtube.hbs',
+        },
+        
+    }]
+  ]
+}
+```
+
+> Behind the scenes, we're using `path.resolve()` to get the absolute path 
+> the example path is based on your project route
+> like the baseDir from the `@gridsome/source-filesystem`
 
 ## Youtube
 
@@ -117,7 +141,7 @@ https://<codepenurl>?tabs=result,html
 | Name          | Type             | Description                                                                               | Allowed Values               | Default   |
 | ------------- | ---------------- | ----------------------------------------------------------------------------------------- | ---------------------------- | --------- |
 | width         | `string`         | Sets the maximum width for each track                                                     | valid width value e.g. 500px | 100%      |
-| height        | `string` / `int` | Sets the height for each pen. Value without `px` or `%`                                   | `0-9999`                     | `300`     |
+| height        | `string` / `int` | Sets the height for each pen. Value without `px` or `%`                                   | `0-9999`                     | `81`      |
 | color         | `string`         | Color play button and other controls. e.g. “#0066CC”                                      | Valid HEX Value with `#`     | `#ff5500` |
 | auto_play     | `boolean`        | Start playing the item automatically                                                      | `true`, `false`              | `false`   |
 | hide_related  | `boolean`        | Show/Hide related tracks                                                                  | `true`, `false`              | `false`   |
@@ -127,6 +151,14 @@ https://<codepenurl>?tabs=result,html
 | show_teaser   | `boolean`        | Show/Hide the teaser of an track                                                          | `true`, `false`              | `true`    |
 | visual        | `boolean`        | Show/Hide the image of an track                                                           | `true`, `false`              | `true`    |
 | single_active | `boolean`        | If set to false the multiple players on the page won’t toggle each other off when playing | `true`, `false`              | `true`    |
+
+### Set custom height
+
+To change the height for one embed (e.g. you want to show a profile or a playlist), you can use the following syntax inside your markdown file:
+
+```
+https://<soundcloudurl>?height=300
+```
 
 ## JSFiddle
 
@@ -142,12 +174,17 @@ https://<codepenurl>?tabs=result,html
 
 ### Tab Customizing for one fiddle
 
-To overwrite the default tab configuration, you can use the following syntac inside your markdown file:
+To overwrite the default tab configuration, you can use the following syntax inside your markdown file:
 
 ```
 https://<fiddleurl>?tabs=result,html
 ```
 
+## Giphy
+
+| Name       | Type      | Description                                             | Allowed Values  | Default |
+| ---------- | --------- | ------------------------------------------------------- | --------------- | ------- |
+| responsive | `boolean` | Use responsive embed instead of static iframe (480x480) | `true`, `false` | `true`  |
 
 ## Example
 
@@ -165,6 +202,10 @@ module.exports = {
             [ '@noxify/gridsome-plugin-remark-embed', {
                 'enabledProviders' : ['Youtube', 'Twitter', 'Gist'],
                 'Youtube' : {
+                    //behind the scenes, we're using path.resolve() to get the absolute path
+                    //the example path is based on your project route
+                    //like the baseDir from the @gridsome/source-filesystem
+                    template: './src/providerTemplates/Youtube.hbs',
                     nocookie: false,
                     width: '300px',
                     align: 'left'
