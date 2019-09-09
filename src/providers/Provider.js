@@ -42,6 +42,11 @@ class Provider {
         return template;
     }
 
+    setCustomTemplate(template) {
+        this.options.template = template;
+        return this;
+    }
+
     async getEmbedData(embedLink) {
 
         const template = this.getTemplate();
