@@ -15,7 +15,7 @@ class Giphy extends Provider {
     getEmbedId(url) {
         const res = url.match(this.regexp);
         if(!res) return false;
-        const regExpPosition = (res[this.idPosition].indexOf('http') !== -1) ? 2 : this.idPosition
+        const regExpPosition = (!res[this.idPosition]) ? 2 : this.idPosition
         return res[regExpPosition];
     }
 }
