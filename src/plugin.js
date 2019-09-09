@@ -36,7 +36,7 @@ module.exports = function (options) {
                 for (const providerName in loadedProviders) {
                     const providerOptions = options[providerName] || {};
                     let Provider = new loadedProviders[providerName](providerOptions);
-                    
+
                     if (providerOptions.template) {
                         Provider.setCustomTemplate(providerOptions.template);
                     }

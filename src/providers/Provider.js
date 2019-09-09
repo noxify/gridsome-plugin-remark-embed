@@ -43,7 +43,7 @@ class Provider {
     }
 
     setCustomTemplate(template) {
-        this.options.template = template;
+        this.template = path.resolve(template);
         return this;
     }
 
