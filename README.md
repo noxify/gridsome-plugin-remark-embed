@@ -13,11 +13,13 @@ https://gridsome-preview.ilovenox.now.sh/
 * JSFiddle
 * Soundcloud
 * Codepen - Ported from https://github.com/weknowinc/gatsby-remark-codepen
+* Giphy
+* Spotify - Ported from https://github.com/garetmckinley/gatsby-remark-embed-spotify
 
 # Installation
 
 ```bash
-npm install -i @noxify/gridsome-plugin-remark-embed
+npm install --save @noxify/gridsome-plugin-remark-embed
 ```
 
 # How to use
@@ -48,7 +50,7 @@ module.exports = {
 
 | Name             | Type     | Description                               | Allowed Values                                                    | Default                 |
 | ---------------- | -------- | ----------------------------------------- | ----------------------------------------------------------------- | ----------------------- |
-| enabledProviders | `array`  | Defines which embed providers are enabled | `Youtube`, `Twitter`, `Gist`, `Codepen`, `Soundcloud`, `JSFiddle` | `[]`                    |
+| enabledProviders | `array`  | Defines which embed providers are enabled | `Youtube`, `Twitter`, `Gist`, `Codepen`, `Soundcloud`, `JSFiddle`, `Giphy`, `Spotify` | `[]`                    |
 | Youtube          | `Object` | Configuration for Provider: Youtube       | see configuration below                                           | see configuration below |
 | Twitter          | `Object` | Configuration for Provider: Twitter       | see configuration below                                           | see configuration below |
 | Gist             | `Object` | Configuration for Provider: Gist          | see configuration below                                           | see configuration below |
@@ -56,6 +58,7 @@ module.exports = {
 | Soundcloud       | `Object` | Configuration for Provider: Soundcloud    | see configuration below                                           | see configuration below |
 | JSFiddle         | `Object` | Configuration for Provider: JSFiddle      | see configuration below                                           | see configuration below |
 | Giphy            | `Object` | Configuration for Provider: Giphy         | see configuration below                                           | see configuration below |
+| Spotify            | `Object` | Configuration for Provider: Spotify         | see configuration below                                           | see configuration below |
 
 ## Custom Provider Template
 
@@ -190,6 +193,14 @@ https://<fiddleurl>?tabs=result,html
 | ---------- | --------- | ------------------------------------------------------- | --------------- | ------- |
 | responsive | `boolean` | Use responsive embed instead of static iframe (480x480) | `true`, `false` | `true`  |
 
+## Spotify
+
+| Name       | Type      | Description                                             | Allowed Values  | Default |
+| ---------- | --------- | ------------------------------------------------------- | --------------- | ------- |
+| width | `string` | Sets the maximum width for the iframe  | `400px`, `100%` | `300px`  |
+| height | `string` | Sets the maximum height for the iframe  | `400px`, `100%` | `380px`  |
+
+
 ## Example
 
 ```js
@@ -279,8 +290,4 @@ Special thanks goes to
 * https://github.com/danvega
 * https://github.com/weknowinc
 * https://github.com/gridsome
-
-# Todos
-
-- [ ] Add more providers
-- [ ] Allow modification of Provider Templates
+* https://github.com/garetmckinley
