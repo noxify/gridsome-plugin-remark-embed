@@ -14,7 +14,7 @@ class Spotify extends Provider {
     }
 
     getType(embedLink) {
-        const res = url.match(this.regexp);
+        const res = embedLink.match(this.regexp);
         return (res) ? res[1] : false;
     }
 
