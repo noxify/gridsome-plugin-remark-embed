@@ -15,6 +15,7 @@ https://gridsome-preview.ilovenox.now.sh/
 * Codepen - Ported from https://github.com/weknowinc/gatsby-remark-codepen
 * Giphy
 * Spotify - Ported from https://github.com/garetmckinley/gatsby-remark-embed-spotify
+* Vimeo
 
 # Installation
 
@@ -48,17 +49,18 @@ module.exports = {
 
 # Configuration
 
-| Name             | Type     | Description                               | Allowed Values                                                    | Default                 |
-| ---------------- | -------- | ----------------------------------------- | ----------------------------------------------------------------- | ----------------------- |
+| Name             | Type     | Description                               | Allowed Values                                                                        | Default                 |
+|------------------|----------|-------------------------------------------|---------------------------------------------------------------------------------------|-------------------------|
 | enabledProviders | `array`  | Defines which embed providers are enabled | `Youtube`, `Twitter`, `Gist`, `Codepen`, `Soundcloud`, `JSFiddle`, `Giphy`, `Spotify` | `[]`                    |
-| Youtube          | `Object` | Configuration for Provider: Youtube       | see configuration below                                           | see configuration below |
-| Twitter          | `Object` | Configuration for Provider: Twitter       | see configuration below                                           | see configuration below |
-| Gist             | `Object` | Configuration for Provider: Gist          | see configuration below                                           | see configuration below |
-| Codepen          | `Object` | Configuration for Provider: Codepen       | see configuration below                                           | see configuration below |
-| Soundcloud       | `Object` | Configuration for Provider: Soundcloud    | see configuration below                                           | see configuration below |
-| JSFiddle         | `Object` | Configuration for Provider: JSFiddle      | see configuration below                                           | see configuration below |
-| Giphy            | `Object` | Configuration for Provider: Giphy         | see configuration below                                           | see configuration below |
-| Spotify            | `Object` | Configuration for Provider: Spotify         | see configuration below                                           | see configuration below |
+| Youtube          | `Object` | Configuration for Provider: Youtube       | see configuration below                                                               | see configuration below |
+| Twitter          | `Object` | Configuration for Provider: Twitter       | see configuration below                                                               | see configuration below |
+| Gist             | `Object` | Configuration for Provider: Gist          | see configuration below                                                               | see configuration below |
+| Codepen          | `Object` | Configuration for Provider: Codepen       | see configuration below                                                               | see configuration below |
+| Soundcloud       | `Object` | Configuration for Provider: Soundcloud    | see configuration below                                                               | see configuration below |
+| JSFiddle         | `Object` | Configuration for Provider: JSFiddle      | see configuration below                                                               | see configuration below |
+| Giphy            | `Object` | Configuration for Provider: Giphy         | see configuration below                                                               | see configuration below |
+| Spotify          | `Object` | Configuration for Provider: Spotify       | see configuration below                                                               | see configuration below |
+| Vimeo            | `Object` | Configuration for Provider: Vimeo         | see configuration below                                                               | see configuration below |
 
 ## Custom Provider Template
 
@@ -86,14 +88,14 @@ remark: {
 ## Youtube
 
 | Name  | Type             | Description                           | Allowed Values               | Default |
-| ----- | ---------------- | ------------------------------------- | ---------------------------- | ------- |
+|-------|------------------|---------------------------------------|------------------------------|---------|
 | width | `string`         | Sets the maximum width for each video | valid width value e.g. 500px | 100%    |
 | align | `string` / `int` | Sets the alignment for each video     | `0`, `auto`, `left`, `right` | `auto`  |
 
 ## Twitter
 
 | Name             | Type      | Description                                  | Allowed Values                    | Default |
-| ---------------- | --------- | -------------------------------------------- | --------------------------------- | ------- |
+|------------------|-----------|----------------------------------------------|-----------------------------------|---------|
 | hideConversation | `boolean` | Hides a parent thread of a tweet             | `true`, `false`                   | `true`  |
 | hideMedia        | `string`  | Hides videos/photos/link previews            | `true`, `false`                   | `true`  |
 | align            | `string`  | Sets the alignment for each twitt            | `none`, `left`, `center`, `right` | `none`  |
@@ -128,7 +130,7 @@ https://gist.github.com/<user>/<gistid>?file=file1.js&highlights=1,3,5-10,15-20
 ## Codepen
 
 | Name    | Type             | Description                                                                                                             | Allowed Values                | Default  |
-| ------- | ---------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------- | -------- |
+|---------|------------------|-------------------------------------------------------------------------------------------------------------------------|-------------------------------|----------|
 | iframe  | `boolean`        | Use iframe a embed method                                                                                               | `true`, `false`               | `false`  |
 | height  | `string` / `int` | Sets the height for each pen. Value without `px` or `%`                                                                 | `0-9999`                      | `265`    |
 | theme   | `string`         | Sets the theme for the pens                                                                                             | `0`, `dark`, `light`          | `0`      |
@@ -146,7 +148,7 @@ https://<codepenurl>?tabs=result,html
 ## Soundcloud
 
 | Name          | Type             | Description                                                                               | Allowed Values               | Default   |
-| ------------- | ---------------- | ----------------------------------------------------------------------------------------- | ---------------------------- | --------- |
+|---------------|------------------|-------------------------------------------------------------------------------------------|------------------------------|-----------|
 | width         | `string`         | Sets the maximum width for each track                                                     | valid width value e.g. 500px | 100%      |
 | height        | `string` / `int` | Sets the height for each pen. Value without `px` or `%`                                   | `0-9999`                     | `81`      |
 | color         | `string`         | Color play button and other controls. e.g. “#0066CC”                                      | Valid HEX Value with `#`     | `#ff5500` |
@@ -170,7 +172,7 @@ https://<soundcloudurl>?height=300
 ## JSFiddle
 
 | Name             | Type       | Description                                        | Allowed Values                | Default                           |
-| ---------------- | ---------- | -------------------------------------------------- | ----------------------------- | --------------------------------- |
+|------------------|------------|----------------------------------------------------|-------------------------------|-----------------------------------|
 | width            | `string`   | Sets the maximum width for each fiddle             | valid width value e.g. 500px  | 100%                              |
 | height           | `int`      | Sets the height for each fiddle                    | `0-9999`                      | `300`                             |
 | iframe           | `booleant` | Use iframe instead of `<script>` to embed a fiddle | `true`, `false`               | `true`                            |
@@ -190,16 +192,25 @@ https://<fiddleurl>?tabs=result,html
 ## Giphy
 
 | Name       | Type      | Description                                             | Allowed Values  | Default |
-| ---------- | --------- | ------------------------------------------------------- | --------------- | ------- |
+|------------|-----------|---------------------------------------------------------|-----------------|---------|
 | responsive | `boolean` | Use responsive embed instead of static iframe (480x480) | `true`, `false` | `true`  |
 
 ## Spotify
 
-| Name       | Type      | Description                                             | Allowed Values  | Default |
-| ---------- | --------- | ------------------------------------------------------- | --------------- | ------- |
-| width | `string` | Sets the maximum width for the iframe  | `400px`, `100%` | `300px`  |
-| height | `string` | Sets the maximum height for the iframe  | `400px`, `100%` | `380px`  |
+| Name   | Type     | Description                            | Allowed Values  | Default |
+|--------|----------|----------------------------------------|-----------------|---------|
+| width  | `string` | Sets the maximum width for the iframe  | `400px`, `100%` | `300px` |
+| height | `string` | Sets the maximum height for the iframe | `400px`, `100%` | `380px` |
 
+## Vimeo
+
+| Name       | Type      | Description                                                    | Allowed Values  | Default |
+|------------|-----------|----------------------------------------------------------------|-----------------|---------|
+| width      | `string`  | Sets the maximum width for the iframe                          | `400px`, `100%` | `640px` |
+| height     | `string`  | Sets the maximum height for the iframe                         | `400px`, `100%` | `360px` |
+| responsive | `boolean` | Use responsive  iframe (if true, width and height are ignored) | `true`, `false` | `false` |
+| autoplay   | `boolean` | Start the video automatically                                  | `true`, `false` | `false` |
+| loop       | `boolean` | Run the video in a loop                                        | `true`, `false` | `false` |
 
 ## Example
 
@@ -272,6 +283,15 @@ https://github.githubassets.com/assets/gist-embed-d89dc96f3ab6372bb73ee45cafdd07
 2. Add `.json` to the gist url e.g. `https://gist.github.com/<yourgithubname>/<gistid>.json`
 3. Search for `stylesheet`
 4. Copy the url
+
+## Vimeo
+
+The Vimeo embed requires the following external asset.
+This is asset is only required when `responsive` is set to `true`.
+
+```
+https://player.vimeo.com/api/player.js
+```
 
 # Alternatives
 
