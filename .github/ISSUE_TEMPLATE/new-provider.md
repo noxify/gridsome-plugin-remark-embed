@@ -1,7 +1,7 @@
 ---
-name: 'Add Provier: <Providername>'
+name: 'Add new provider'
 about: Template to add a new embed provider
-title: provider
+title: 'Add Provider: <Providername>'
 labels: enhancement, provider
 assignees: ''
 
