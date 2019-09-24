@@ -11,7 +11,8 @@ class Youtube extends Provider {
         this.options = _.defaults(options, {
             nocookie: true,
             width: '100%',
-            align: 'auto'
+            align: 'auto',
+            margin: `0 ${this.options.align}`
         });
     }
 
