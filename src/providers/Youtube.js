@@ -8,11 +8,11 @@ class Youtube extends Provider {
         this.regexp = /(?:https?:\/\/)?(?:(?:(?:www\.?)?youtube(?:-nocookie)?\.com(?:\/(?:embed\/|watch\/|(?:playlist\?(?:list=))|(?:watch\?(?:v=))))?)|(?:youtu\.be\/?))(.*)/i;
         this.template = __dirname+'/../templates/Youtube.hbs';
         this.idPosition = 1;
+        const alignment = options.align || 'auto';
         this.options = _.defaults(options, {
             nocookie: true,
             width: '100%',
-            align: 'auto',
-            margin: `0 ${this.options.align}`
+            margin: `0 ${alignment}`
         });
     }
 
