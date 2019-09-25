@@ -49,18 +49,18 @@ module.exports = {
 
 # Configuration
 
-| Name             | Type     | Description                               | Allowed Values                                                                        | Default                 |
-|------------------|----------|-------------------------------------------|---------------------------------------------------------------------------------------|-------------------------|
-| enabledProviders | `array`  | Defines which embed providers are enabled | `Youtube`, `Twitter`, `Gist`, `Codepen`, `Soundcloud`, `JSFiddle`, `Giphy`, `Spotify` | `[]`                    |
-| Youtube          | `Object` | Configuration for Provider: Youtube       | see configuration below                                                               | see configuration below |
-| Twitter          | `Object` | Configuration for Provider: Twitter       | see configuration below                                                               | see configuration below |
-| Gist             | `Object` | Configuration for Provider: Gist          | see configuration below                                                               | see configuration below |
-| Codepen          | `Object` | Configuration for Provider: Codepen       | see configuration below                                                               | see configuration below |
-| Soundcloud       | `Object` | Configuration for Provider: Soundcloud    | see configuration below                                                               | see configuration below |
-| JSFiddle         | `Object` | Configuration for Provider: JSFiddle      | see configuration below                                                               | see configuration below |
-| Giphy            | `Object` | Configuration for Provider: Giphy         | see configuration below                                                               | see configuration below |
-| Spotify          | `Object` | Configuration for Provider: Spotify       | see configuration below                                                               | see configuration below |
-| Vimeo            | `Object` | Configuration for Provider: Vimeo         | see configuration below                                                               | see configuration below |
+| Name             | Type     | Description                               | Allowed Values                                                                        | Default                                         |
+|------------------|----------|-------------------------------------------|---------------------------------------------------------------------------------------|-------------------------------------------------|
+| enabledProviders | `array`  | Defines which embed providers are enabled | `Youtube`, `Twitter`, `Gist`, `Codepen`, `Soundcloud`, `JSFiddle`, `Giphy`, `Spotify` | `[]`                                            |
+| Youtube          | `Object` | Configuration for Provider: Youtube       | see [YouTube configuration](#youtube)                                                 | see [YouTube configuration](#youtube)           |
+| Twitter          | `Object` | Configuration for Provider: Twitter       | see [Twitter configuration](#twitter)                                                 | see [Twitter configuration](#twitter)               |
+| Gist             | `Object` | Configuration for Provider: Gist          | see [Gist configuration](#gist)                                                       | see [Gist configuration](#gist)                 |
+| Codepen          | `Object` | Configuration for Provider: Codepen       | see [Codepen configuration](#codepen)                                                 | see [Codepen configuration](#codepen)           |
+| Soundcloud       | `Object` | Configuration for Provider: Soundcloud    | see [Soundcloud configuration](#soundcloud)                                           | see [Soundcloud configuration](#soundcloud)     |
+| JSFiddle         | `Object` | Configuration for Provider: JSFiddle      | see [JSFiddle configuration](#jsfiddle)                                               | see [JSFiddle configuration](#jsfiddle)         |
+| Giphy            | `Object` | Configuration for Provider: Giphy         | see [Giphy configuration](#giphy)                                                     | see [Giphy configuration](#giphy)               |
+| Spotify          | `Object` | Configuration for Provider: Spotify       | see [Spotify configuration](#spotify)                                                 | see [Spotify configuration](#spotify)           |
+| Vimeo            | `Object` | Configuration for Provider: Vimeo         | see [Vimeo configuration](#vimeo)                                                     | see [Vimeo configuration](#vimeo)               |
 
 ## Custom Provider Template
 
