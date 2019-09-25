@@ -99,7 +99,7 @@ remark: {
 | hideConversation | `boolean` | Hides a parent thread of a tweet             | `true`, `false`                   | `true`  |
 | hideMedia        | `string`  | Hides videos/photos/link previews            | `true`, `false`                   | `true`  |
 | align            | `string`  | Sets the alignment for each embed            | `none`, `left`, `center`, `right` | `none`  |
-| theme            | `string`  | Sets the alignment for each video            | `light`, `dark`                   | `null`  |
+| theme            | `string`  | Sets the theme for the embeds                | `light`, `dark`                   | `null`  |
 | linkColor        | `string`  | Adjust the color of Tweet links              | Hex Value e.g. `#FFCC00`          | `null`  |
 | widgetType       | `string`  | Sets the embed type                          | `video`                           | `null`  |
 | dnt              | `boolean` | Allows/Forbids twitter to task user activity | `true`, `false`                   | `true`  |
