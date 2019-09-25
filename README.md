@@ -98,7 +98,7 @@ remark: {
 |------------------|-----------|----------------------------------------------|-----------------------------------|---------|
 | hideConversation | `boolean` | Hides a parent thread of a tweet             | `true`, `false`                   | `true`  |
 | hideMedia        | `string`  | Hides videos/photos/link previews            | `true`, `false`                   | `true`  |
-| align            | `string`  | Sets the alignment for each twitt            | `none`, `left`, `center`, `right` | `none`  |
+| align            | `string`  | Sets the alignment for each embed            | `none`, `left`, `center`, `right` | `none`  |
 | theme            | `string`  | Sets the alignment for each video            | `light`, `dark`                   | `null`  |
 | linkColor        | `string`  | Adjust the color of Tweet links              | Hex Value e.g. `#FFCC00`          | `null`  |
 | widgetType       | `string`  | Sets the embed type                          | `video`                           | `null`  |
@@ -131,7 +131,7 @@ https://gist.github.com/<user>/<gistid>?file=file1.js&highlights=1,3,5-10,15-20
 
 | Name    | Type             | Description                                                                                                             | Allowed Values                | Default  |
 |---------|------------------|-------------------------------------------------------------------------------------------------------------------------|-------------------------------|----------|
-| iframe  | `boolean`        | Use iframe a embed method                                                                                               | `true`, `false`               | `false`  |
+| iframe  | `boolean`        | Use iframe embed method                                                                                                 | `true`, `false`               | `false`  |
 | height  | `string` / `int` | Sets the height for each pen. Value without `px` or `%`                                                                 | `0-9999`                      | `265`    |
 | theme   | `string`         | Sets the theme for the pens                                                                                             | `0`, `dark`, `light`          | `0`      |
 | preview | `boolean`        | Defines if the pen is running directly or after the click on "run pen"                                                  | `true`, `false`               | `true`   |
@@ -139,7 +139,7 @@ https://gist.github.com/<user>/<gistid>?file=file1.js&highlights=1,3,5-10,15-20
 
 ### Tab Customizing for one pen
 
-To overwrite the default tab configuration, you can use the following syntac inside your markdown file:
+To overwrite the default tab configuration, you can use the following syntax inside your markdown file:
 
 ```
 https://<codepenurl>?tabs=result,html
@@ -157,8 +157,8 @@ https://<codepenurl>?tabs=result,html
 | show_comments | `boolean`        | Whether the player displays timed comments                                                | `true`, `false`              | `true`    |
 | show_user     | `boolean`        | Show/Hide the uploader name                                                               | `true`, `false`              | `true`    |
 | show_reposts  | `boolean`        | Show/Hide reposts                                                                         | `true`, `false`              | `false`   |
-| show_teaser   | `boolean`        | Show/Hide the teaser of an track                                                          | `true`, `false`              | `true`    |
-| visual        | `boolean`        | Show/Hide the image of an track                                                           | `true`, `false`              | `true`    |
+| show_teaser   | `boolean`        | Show/Hide the teaser of a track                                                           | `true`, `false`              | `true`    |
+| visual        | `boolean`        | Show/Hide the image of a track                                                            | `true`, `false`              | `true`    |
 | single_active | `boolean`        | If set to false the multiple players on the page won’t toggle each other off when playing | `true`, `false`              | `true`    |
 
 ### Set custom height
@@ -175,10 +175,10 @@ https://<soundcloudurl>?height=300
 |------------------|------------|----------------------------------------------------|-------------------------------|-----------------------------------|
 | width            | `string`   | Sets the maximum width for each fiddle             | valid width value e.g. 500px  | 100%                              |
 | height           | `int`      | Sets the height for each fiddle                    | `0-9999`                      | `300`                             |
-| iframe           | `booleant` | Use iframe instead of `<script>` to embed a fiddle | `true`, `false`               | `true`                            |
+| iframe           | `boolean`  | Use iframe instead of `<script>` to embed a fiddle | `true`, `false`               | `true`                            |
 | secureConnection | `boolean`  | Use `https` instead of `http`                      | `true`, `false`               | `false`                           |
 | tabs             | `array`    | Defines which tabs should be shown                 | `js`, `html`, `css`, `result` | `['js', 'html', 'css', 'result']` |
-| theme            | `string`   | Defines the theem for each fiddle                  | `light`, `dark`               | `light`                           |
+| theme            | `string`   | Defines the theme for each fiddle                  | `light`, `dark`               | `light`                           |
 
 
 ### Tab Customizing for one fiddle
@@ -251,7 +251,7 @@ module.exports = {
 
 # External Assets
 
-By default, the plugin do not append or load external assets, you have to add the following resources manually.
+By default, the plugin does not append or load external assets, you have to add the following resources manually.
 
 ## Twitter
 
@@ -279,7 +279,7 @@ https://github.githubassets.com/assets/gist-embed-d89dc96f3ab6372bb73ee45cafdd07
 
 ### Get your own asset url
 
-1. Create an new [github gist](https://gist.github.com/)
+1. Create a new [github gist](https://gist.github.com/)
 2. Add `.json` to the gist url e.g. `https://gist.github.com/<yourgithubname>/<gistid>.json`
 3. Search for `stylesheet`
 4. Copy the url
