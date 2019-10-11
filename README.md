@@ -49,18 +49,18 @@ module.exports = {
 
 # Configuration
 
-| Name             | Type     | Description                               | Allowed Values                                                                        | Default                                         |
-|------------------|----------|-------------------------------------------|---------------------------------------------------------------------------------------|-------------------------------------------------|
-| enabledProviders | `array`  | Defines which embed providers are enabled | `Youtube`, `Twitter`, `Gist`, `Codepen`, `Soundcloud`, `JSFiddle`, `Giphy`, `Spotify` | `[]`                                            |
-| Youtube          | `Object` | Configuration for Provider: Youtube       | see [YouTube configuration](#youtube)                                                 | see [YouTube configuration](#youtube)           |
-| Twitter          | `Object` | Configuration for Provider: Twitter       | see [Twitter configuration](#twitter)                                                 | see [Twitter configuration](#twitter)           |
-| Gist             | `Object` | Configuration for Provider: Gist          | see [Gist configuration](#gist)                                                       | see [Gist configuration](#gist)                 |
-| Codepen          | `Object` | Configuration for Provider: Codepen       | see [Codepen configuration](#codepen)                                                 | see [Codepen configuration](#codepen)           |
-| Soundcloud       | `Object` | Configuration for Provider: Soundcloud    | see [Soundcloud configuration](#soundcloud)                                           | see [Soundcloud configuration](#soundcloud)     |
-| JSFiddle         | `Object` | Configuration for Provider: JSFiddle      | see [JSFiddle configuration](#jsfiddle)                                               | see [JSFiddle configuration](#jsfiddle)         |
-| Giphy            | `Object` | Configuration for Provider: Giphy         | see [Giphy configuration](#giphy)                                                     | see [Giphy configuration](#giphy)               |
-| Spotify          | `Object` | Configuration for Provider: Spotify       | see [Spotify configuration](#spotify)                                                 | see [Spotify configuration](#spotify)           |
-| Vimeo            | `Object` | Configuration for Provider: Vimeo         | see [Vimeo configuration](#vimeo)                                                     | see [Vimeo configuration](#vimeo)               |
+| Name             | Type     | Description                               | Allowed Values                                                                        | Default                                     |
+| ---------------- | -------- | ----------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------- |
+| enabledProviders | `array`  | Defines which embed providers are enabled | `Youtube`, `Twitter`, `Gist`, `Codepen`, `Soundcloud`, `JSFiddle`, `Giphy`, `Spotify` | `[]`                                        |
+| Youtube          | `Object` | Configuration for Provider: Youtube       | see [YouTube configuration](#youtube)                                                 | see [YouTube configuration](#youtube)       |
+| Twitter          | `Object` | Configuration for Provider: Twitter       | see [Twitter configuration](#twitter)                                                 | see [Twitter configuration](#twitter)       |
+| Gist             | `Object` | Configuration for Provider: Gist          | see [Gist configuration](#gist)                                                       | see [Gist configuration](#gist)             |
+| Codepen          | `Object` | Configuration for Provider: Codepen       | see [Codepen configuration](#codepen)                                                 | see [Codepen configuration](#codepen)       |
+| Soundcloud       | `Object` | Configuration for Provider: Soundcloud    | see [Soundcloud configuration](#soundcloud)                                           | see [Soundcloud configuration](#soundcloud) |
+| JSFiddle         | `Object` | Configuration for Provider: JSFiddle      | see [JSFiddle configuration](#jsfiddle)                                               | see [JSFiddle configuration](#jsfiddle)     |
+| Giphy            | `Object` | Configuration for Provider: Giphy         | see [Giphy configuration](#giphy)                                                     | see [Giphy configuration](#giphy)           |
+| Spotify          | `Object` | Configuration for Provider: Spotify       | see [Spotify configuration](#spotify)                                                 | see [Spotify configuration](#spotify)       |
+| Vimeo            | `Object` | Configuration for Provider: Vimeo         | see [Vimeo configuration](#vimeo)                                                     | see [Vimeo configuration](#vimeo)           |
 
 ## Custom Provider Template
 
@@ -90,7 +90,7 @@ remark: {
 | Name   | Type                 | Description                                                                                   | Allowed Values               | Default           |
 | ------ | -------------------- | --------------------------------------------------------------------------------------------- | ---------------------------- | ----------------- |
 | width  | `string`             | Sets the maximum width for each video                                                         | valid width value e.g. 500px | 100%              |
-| align  | `string` / `int`     | Sets the alignment for each video                                                             | `0`, `auto`, `left`, `right` | `auto`            |
+| align  | `string` / `int`     | Sets the alignment for each video                                                             | `0`, `auto`                  | `auto`            |
 | margin | `string` / `boolean` | Allows to set a custom margin value. <br>Set `false` to disable the `margin` inside the html. | `false`, `5px 5px 5px 5px`   | `0 <align value>` |
 
 ## Twitter
@@ -131,7 +131,7 @@ https://gist.github.com/<user>/<gistid>?file=file1.js&highlights=1,3,5-10,15-20
 ## Codepen
 
 | Name    | Type             | Description                                                                                                             | Allowed Values                | Default  |
-|---------|------------------|-------------------------------------------------------------------------------------------------------------------------|-------------------------------|----------|
+| ------- | ---------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------- | -------- |
 | iframe  | `boolean`        | Use iframe embed method                                                                                                 | `true`, `false`               | `false`  |
 | height  | `string` / `int` | Sets the height for each pen. Value without `px` or `%`                                                                 | `0-9999`                      | `265`    |
 | theme   | `string`         | Sets the theme for the pens                                                                                             | `0`, `dark`, `light`          | `0`      |
@@ -172,14 +172,14 @@ https://<soundcloudurl>?height=300
 
 ## JSFiddle
 
-| Name             | Type       | Description                                        | Allowed Values                | Default                           |
-| ---------------- | ---------- | -------------------------------------------------- | ----------------------------- | --------------------------------- |
-| width            | `string`   | Sets the maximum width for each fiddle             | valid width value e.g. 500px  | 100%                              |
-| height           | `int`      | Sets the height for each fiddle                    | `0-9999`                      | `300`                             |
-| iframe           | `boolean`  | Use iframe instead of `<script>` to embed a fiddle | `true`, `false`               | `true`                            |
-| secureConnection | `boolean`  | Use `https` instead of `http`                      | `true`, `false`               | `false`                           |
-| tabs             | `array`    | Defines which tabs should be shown                 | `js`, `html`, `css`, `result` | `['js', 'html', 'css', 'result']` |
-| theme            | `string`   | Defines the theme for each fiddle                  | `light`, `dark`               | `light`                           |
+| Name             | Type      | Description                                        | Allowed Values                | Default                           |
+| ---------------- | --------- | -------------------------------------------------- | ----------------------------- | --------------------------------- |
+| width            | `string`  | Sets the maximum width for each fiddle             | valid width value e.g. 500px  | 100%                              |
+| height           | `int`     | Sets the height for each fiddle                    | `0-9999`                      | `300`                             |
+| iframe           | `boolean` | Use iframe instead of `<script>` to embed a fiddle | `true`, `false`               | `true`                            |
+| secureConnection | `boolean` | Use `https` instead of `http`                      | `true`, `false`               | `false`                           |
+| tabs             | `array`   | Defines which tabs should be shown                 | `js`, `html`, `css`, `result` | `['js', 'html', 'css', 'result']` |
+| theme            | `string`  | Defines the theme for each fiddle                  | `light`, `dark`               | `light`                           |
 
 
 ### Tab Customizing for one fiddle
