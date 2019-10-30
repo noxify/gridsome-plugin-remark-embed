@@ -16,6 +16,7 @@ https://gridsome-preview.ilovenox.now.sh/
 * Giphy
 * Spotify - Ported from https://github.com/garetmckinley/gatsby-remark-embed-spotify
 * Vimeo
+* Flickr
 
 # Installation
 
@@ -61,7 +62,7 @@ module.exports = {
 | Giphy            | `Object` | Configuration for Provider: Giphy         | see [Giphy configuration](#giphy)                                                     | see [Giphy configuration](#giphy)           |
 | Spotify          | `Object` | Configuration for Provider: Spotify       | see [Spotify configuration](#spotify)                                                 | see [Spotify configuration](#spotify)       |
 | Vimeo            | `Object` | Configuration for Provider: Vimeo         | see [Vimeo configuration](#vimeo)                                                     | see [Vimeo configuration](#vimeo)           |
-
+| Flickr           | `Object` | Configuration for Provider: Flickr        | see [Vimeo configuration](#flickr)                                                    | see [Flickr configuration](#flickr)         |
 ## Custom Provider Template
 
 You can overwrite the default provider template.
@@ -213,6 +214,15 @@ https://<fiddleurl>?tabs=result,html
 | autoplay   | `boolean` | Start the video automatically                                  | `true`, `false` | `false` |
 | loop       | `boolean` | Run the video in a loop                                        | `true`, `false` | `false` |
 
+## Vimeo
+
+| Name          | Type      | Description                                        | Allowed Values  | Default |
+| ------------- | --------- | -------------------------------------------------- | --------------- | ------- |
+| width         | `integer`  | Sets the maximum width for the embed               | `1024`          | `1024`  |
+| height        | `integer`  | Sets the maximum height for the embed              | `768`           | `768`   |
+| excludeScript | `boolean` | Removes the `<script>` part from the response html | `true`, `false` | `true`  |
+
+
 ## Example
 
 ```js
@@ -292,6 +302,22 @@ This is asset is only required when `responsive` is set to `true`.
 
 ```
 https://player.vimeo.com/api/player.js
+```
+
+## Flickr
+
+By default the `excludeScript` is set to `true`. 
+This means you have to embed by your own.
+
+URL:
+
+```
+https://embedr.flickr.com/assets/client-code.js
+```
+
+This is the default flickr script part:
+```
+<script async src="https://embedr.flickr.com/assets/client-code.js" charset="utf-8"></script>
 ```
 
 # Alternatives

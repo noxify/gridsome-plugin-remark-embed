@@ -1,12 +1,14 @@
-{{#if options.iframe}}
-    <iframe 
-        width="{{getValue options.width '100%'}}" 
-        height="{{getValue options.height '300'}}"
-        src="{{#if options.secureConnection}}https{{else}}http{{/if}}://{{widgetLink}}" 
-        allowfullscreen="allowfullscreen"
-        allowpaymentrequest 
-        frameborder="0">
-    </iframe>
-{{else}}
-    <script async src="{{#if options.secureConnection}}https{{else}}http{{/if}}://{{widgetLink}}/"></script>
-{{/if}}
+<div class="jsfiddle-embed">
+    {{#if options.iframe}}
+        <iframe 
+            width="{{getValue options.width '100%'}}" 
+            height="{{getValue options.height '300'}}"
+            src="{{#if options.secureConnection}}https{{else}}http{{/if}}://{{widgetLink}}" 
+            allowfullscreen="allowfullscreen"
+            allowpaymentrequest 
+            frameborder="0">
+        </iframe>
+    {{else}}
+        <script async src="{{#if options.secureConnection}}https{{else}}http{{/if}}://{{widgetLink}}/"></script>
+    {{/if}}
+</div>
