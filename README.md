@@ -17,6 +17,8 @@ https://gridsome-preview.ilovenox.now.sh/
 * Spotify - Ported from https://github.com/garetmckinley/gatsby-remark-embed-spotify
 * Vimeo
 * Flickr
+* Facebook Post
+* Facebook Video
 
 # Installation
 
@@ -62,7 +64,10 @@ module.exports = {
 | Giphy            | `Object` | Configuration for Provider: Giphy         | see [Giphy configuration](#giphy)                                                     | see [Giphy configuration](#giphy)           |
 | Spotify          | `Object` | Configuration for Provider: Spotify       | see [Spotify configuration](#spotify)                                                 | see [Spotify configuration](#spotify)       |
 | Vimeo            | `Object` | Configuration for Provider: Vimeo         | see [Vimeo configuration](#vimeo)                                                     | see [Vimeo configuration](#vimeo)           |
-| Flickr           | `Object` | Configuration for Provider: Flickr        | see [Vimeo configuration](#flickr)                                                    | see [Flickr configuration](#flickr)         |
+| Flickr           | `Object` | Configuration for Provider: Flickr        | see [Flickr configuration](#flickr)                                                    | see [Flickr configuration](#flickr)         |
+| Facebook Post          | `Object` | Configuration for Provider: Facebook Post        | see [Facebook Post configuration](#facebook-post)                                                    | see [Facebook Posts configuration](#facebook-post)         |
+| Facebook Video           | `Object` | Configuration for Provider: Facebook Video        | see [Facebook Video configuration](#facebook-video)                                                    | see [Facebook Video configuration](#facebook-video)         |
+
 ## Custom Provider Template
 
 You can overwrite the default provider template.
@@ -214,13 +219,27 @@ https://<fiddleurl>?tabs=result,html
 | autoplay   | `boolean` | Start the video automatically                                  | `true`, `false` | `false` |
 | loop       | `boolean` | Run the video in a loop                                        | `true`, `false` | `false` |
 
-## Vimeo
+## Flickr
 
 | Name          | Type      | Description                                        | Allowed Values  | Default |
 | ------------- | --------- | -------------------------------------------------- | --------------- | ------- |
 | width         | `integer`  | Sets the maximum width for the embed               | `1024`          | `1024`  |
 | height        | `integer`  | Sets the maximum height for the embed              | `768`           | `768`   |
 | excludeScript | `boolean` | Removes the `<script>` part from the response html | `true`, `false` | `true`  |
+
+## Facebook Post
+
+| Name          | Type      | Description                                        | Allowed Values  | Default |
+| ------------- | --------- | -------------------------------------------------- | --------------- | ------- |
+| width         | `integer`  | Sets the maximum width for the embed               | `100%`, `400px` | `100%`  |
+| omitscript | `boolean` | Removes the `<script>` part from the response html | `true`, `false` | `true`  |
+
+## Facebook Video
+
+| Name          | Type      | Description                                        | Allowed Values  | Default |
+| ------------- | --------- | -------------------------------------------------- | --------------- | ------- |
+| width         | `integer`  | Sets the maximum width for the embed               | `100%`, `400px` | `100%`  |
+| omitscript | `boolean` | Removes the `<script>` part from the response html | `true`, `false` | `true`  |
 
 
 ## Example
@@ -318,6 +337,24 @@ https://embedr.flickr.com/assets/client-code.js
 This is the default flickr script part:
 ```
 <script async src="https://embedr.flickr.com/assets/client-code.js" charset="utf-8"></script>
+```
+
+## Facebook
+
+If you have `omitscript` set to `true`, you have to add the following script:
+
+```
+<script>
+(function(d, s, id) { 
+	var js, 
+	    fjs = d.getElementsByTagName(s)[0]; 
+	if (d.getElementById(id)) return; 
+	js = d.createElement(s); 
+	js.id = id; 
+	js.src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.9";  
+	fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+</script>
 ```
 
 # Alternatives
