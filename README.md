@@ -19,6 +19,7 @@ https://gridsome-preview.ilovenox.now.sh/
 * Flickr
 * Facebook Post
 * Facebook Video
+* Imgur
 
 # Installation
 
@@ -67,6 +68,7 @@ module.exports = {
 | Flickr           | `Object` | Configuration for Provider: Flickr        | see [Flickr configuration](#flickr)                                                    | see [Flickr configuration](#flickr)         |
 | Facebook Post          | `Object` | Configuration for Provider: Facebook Post        | see [Facebook Post configuration](#facebook-post)                                                    | see [Facebook Posts configuration](#facebook-post)         |
 | Facebook Video           | `Object` | Configuration for Provider: Facebook Video        | see [Facebook Video configuration](#facebook-video)                                                    | see [Facebook Video configuration](#facebook-video)         |
+| Imgur           | `Object` | Configuration for Provider: Imgur        | see [Flickr configuration](#imgur)                                                    | see [Imgur configuration](#imgur)         |
 
 ## Custom Provider Template
 
@@ -232,14 +234,20 @@ https://<fiddleurl>?tabs=result,html
 | Name          | Type      | Description                                        | Allowed Values  | Default |
 | ------------- | --------- | -------------------------------------------------- | --------------- | ------- |
 | width         | `integer`  | Sets the maximum width for the embed               | `100%`, `400px` | `100%`  |
-| omitscript | `boolean` | Removes the `<script>` part from the response html | `true`, `false` | `true`  |
+| excludeScript | `boolean` | Removes the `<script>` part from the response html | `true`, `false` | `true`  |
 
 ## Facebook Video
 
 | Name          | Type      | Description                                        | Allowed Values  | Default |
 | ------------- | --------- | -------------------------------------------------- | --------------- | ------- |
 | width         | `integer`  | Sets the maximum width for the embed               | `100%`, `400px` | `100%`  |
-| omitscript | `boolean` | Removes the `<script>` part from the response html | `true`, `false` | `true`  |
+| excludeScript | `boolean` | Removes the `<script>` part from the response html | `true`, `false` | `true`  |
+
+## Imgur
+
+| Name          | Type      | Description                                        | Allowed Values  | Default |
+| ------------- | --------- | -------------------------------------------------- | --------------- | ------- |
+| excludeScript | `boolean` | Removes the `<script>` part from the response html | `true`, `false` | `true`  |
 
 
 ## Example
@@ -341,7 +349,9 @@ This is the default flickr script part:
 
 ## Facebook
 
-If you have `omitscript` set to `true`, you have to add the following script:
+By default the `excludeScript` is set to `true`. 
+This means you have to embed by your own.
+
 
 ```
 <script>
@@ -355,6 +365,22 @@ If you have `omitscript` set to `true`, you have to add the following script:
 	fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));
 </script>
+```
+
+## Imgur
+
+By default the `excludeScript` is set to `true`. 
+This means you have to embed by your own.
+
+URL:
+
+```
+//s.imgur.com/min/embed.js
+```
+
+This is the default imgur script part:
+```
+<script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
 ```
 
 # Alternatives

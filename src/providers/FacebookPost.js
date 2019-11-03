@@ -10,7 +10,7 @@ class FacebookPost extends Provider {
         this.template = __dirname + '/../templates/FacebookPost.hbs';
         this.options = _.defaults(options, {
             maxwidth: '100%',
-            omitscript: true
+            excludeScript: true
         });
     }
 
@@ -18,7 +18,7 @@ class FacebookPost extends Provider {
         const embedOptions = {
             url: embedLink,
             maxwidth: this.options.width || '',
-            omitscript: this.options.omitscript || '',
+            omitscript: this.options.excludeScript || '',
             format: 'json'
             
         }
