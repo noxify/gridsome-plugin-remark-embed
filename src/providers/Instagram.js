@@ -21,8 +21,8 @@ class Instagram extends Provider {
             maxwidth: this.options.maxwidth,
             omitscript: this.options.omitscript,
             hidecaption: this.options.hidecaption
-            
         }
+        
         const params = Object.entries(embedOptions).map(([key, val]) => `${key}=${val}`).join('&')
         const apiUrl = `https://api.instagram.com/oembed?${params}`
 
