@@ -9,7 +9,7 @@ class Imgur extends Provider {
         this.idPosition = 1;
         this.template = __dirname + '/../templates/Imgur.hbs';
         this.options = _.defaults(options, {
-            excludeScript: true
+            omitscript: true
         });
     }
 
@@ -25,7 +25,7 @@ class Imgur extends Provider {
         
         const embedHtml = embedData.html;
 
-        if (this.options.excludeScript) {
+        if (this.options.omitscript) {
             const htmlRegExp = /(.*)(<script.*<\/script>)/i;
 
             if ((stripedHtml = htmlRegExp.exec(embedData.html)) !== null) {

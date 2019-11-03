@@ -69,6 +69,8 @@ module.exports = {
 | Facebook Post          | `Object` | Configuration for Provider: Facebook Post        | see [Facebook Post configuration](#facebook-post)                                                    | see [Facebook Posts configuration](#facebook-post)         |
 | Facebook Video           | `Object` | Configuration for Provider: Facebook Video        | see [Facebook Video configuration](#facebook-video)                                                    | see [Facebook Video configuration](#facebook-video)         |
 | Imgur           | `Object` | Configuration for Provider: Imgur        | see [Flickr configuration](#imgur)                                                    | see [Imgur configuration](#imgur)         |
+| Instagram           | `Object` | Configuration for Provider: Instagram        | see [Instagram configuration](#instagram)                                                    | see [Instagram configuration](#instagram)         |
+
 
 ## Custom Provider Template
 
@@ -227,27 +229,35 @@ https://<fiddleurl>?tabs=result,html
 | ------------- | --------- | -------------------------------------------------- | --------------- | ------- |
 | width         | `integer`  | Sets the maximum width for the embed               | `1024`          | `1024`  |
 | height        | `integer`  | Sets the maximum height for the embed              | `768`           | `768`   |
-| excludeScript | `boolean` | Removes the `<script>` part from the response html | `true`, `false` | `true`  |
+| omitscript | `boolean` | Removes the `<script>` part from the response html | `true`, `false` | `true`  |
 
 ## Facebook Post
 
 | Name          | Type      | Description                                        | Allowed Values  | Default |
 | ------------- | --------- | -------------------------------------------------- | --------------- | ------- |
 | width         | `integer`  | Sets the maximum width for the embed               | `100%`, `400px` | `100%`  |
-| excludeScript | `boolean` | Removes the `<script>` part from the response html | `true`, `false` | `true`  |
+| omitscript | `boolean` | Removes the `<script>` part from the response html | `true`, `false` | `true`  |
 
 ## Facebook Video
 
 | Name          | Type      | Description                                        | Allowed Values  | Default |
 | ------------- | --------- | -------------------------------------------------- | --------------- | ------- |
 | width         | `integer`  | Sets the maximum width for the embed               | `100%`, `400px` | `100%`  |
-| excludeScript | `boolean` | Removes the `<script>` part from the response html | `true`, `false` | `true`  |
+| omitscript | `boolean` | Removes the `<script>` part from the response html | `true`, `false` | `true`  |
 
 ## Imgur
 
 | Name          | Type      | Description                                        | Allowed Values  | Default |
 | ------------- | --------- | -------------------------------------------------- | --------------- | ------- |
-| excludeScript | `boolean` | Removes the `<script>` part from the response html | `true`, `false` | `true`  |
+| omitscript | `boolean` | Removes the `<script>` part from the response html | `true`, `false` | `true`  |
+
+## Instagram
+
+| Name          | Type      | Description                                        | Allowed Values  | Default |
+| ------------- | --------- | -------------------------------------------------- | --------------- | ------- |
+| maxwidth         | `integer`  | Sets the maximum width for the embed (min. 320)              | `400` | `500`  |
+| hidecaption | `boolean` | Hides the caption text of the embed | `true`, `false` | `false`  |
+| omitscript | `boolean` | Removes the `<script>` part from the response html | `true`, `false` | `true`  |
 
 
 ## Example
@@ -333,7 +343,7 @@ https://player.vimeo.com/api/player.js
 
 ## Flickr
 
-By default the `excludeScript` is set to `true`. 
+By default the `omitscript` is set to `true`. 
 This means you have to embed by your own.
 
 URL:
@@ -342,16 +352,17 @@ URL:
 https://embedr.flickr.com/assets/client-code.js
 ```
 
-This is the default flickr script part:
+This is the default flickr script:
 ```
 <script async src="https://embedr.flickr.com/assets/client-code.js" charset="utf-8"></script>
 ```
 
 ## Facebook
 
-By default the `excludeScript` is set to `true`. 
+By default the `omitscript` is set to `true`. 
 This means you have to embed by your own.
 
+Example:
 
 ```
 <script>
@@ -369,7 +380,7 @@ This means you have to embed by your own.
 
 ## Imgur
 
-By default the `excludeScript` is set to `true`. 
+By default the `omitscript` is set to `true`. 
 This means you have to embed by your own.
 
 URL:
@@ -378,10 +389,28 @@ URL:
 //s.imgur.com/min/embed.js
 ```
 
-This is the default imgur script part:
+This is the default imgur script:
 ```
 <script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
 ```
+
+## Instagram
+
+By default the `omitscript` is set to `true`. 
+This means you have to embed by your own.
+
+URL:
+
+```
+//www.instagram.com/embed.js
+```
+
+This is the default instagram script:
+
+```
+<script async src="//www.instagram.com/embed.js" charset="utf-8"></script>
+```
+
 
 # Alternatives
 
