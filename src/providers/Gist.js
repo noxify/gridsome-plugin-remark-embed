@@ -116,7 +116,7 @@ class Gist extends Provider {
         return template({
             id: this.getEmbedId(embedLink),
             link: embedLink,
-            embedData: html.trim(),
+            embedData: html == undefined ? '' : html.trim(),
             options: this.options
         });
     }
