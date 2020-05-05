@@ -63,7 +63,7 @@ class Gist extends Provider {
         // explode the highlights ranges, if any
         let highlights = [];
         if (typeof query.highlights === "string") {
-            highlights = rangeParser.parse(query.highlights);
+            highlights = rangeParser(query.highlights);
         } else if (Array.isArray(query.highlights)) {
             highlights = query.highlights;
         }

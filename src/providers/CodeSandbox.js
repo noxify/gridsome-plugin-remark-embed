@@ -7,7 +7,7 @@ class CodeSandbox extends Provider {
         super(options);
         this.regexp = /(?:http(?:s?)):\/\/(?:www\.)?codesandbox\.io\/(?:s|embed)\/([a-zA-Z0-9-]*)/i;
         this.template = __dirname + '/../templates/CodeSandbox.hbs';
-        this.idPosition = 0;
+        this.idPosition = 1;
         this.options = _.defaults(options, {
             codemirror: 0,
             editorsize: 50,
@@ -18,7 +18,7 @@ class CodeSandbox extends Provider {
             hidenavigation: 0,
             moduleview: 0,
             previewwindow: 'browser',
-            runonclick: 0,
+            runonclick: 1,
             verticallayout: 0,
             view: 'split'
         });
@@ -37,15 +37,11 @@ class CodeSandbox extends Provider {
         const params = Object.entries(embedOptions).map(([key, val]) => `${key}=${val}`).join('&')
         const apiUrl = `https://www.codesandbox.io/embed/${embedId}?${params}`
 
-        const response = await fetch(apiUrl)
-        const embedData = await response.json()
-
         const template = this.getTemplate();
 
         return template({
-            id: embedId
-            link: embedLink,
-            embedData: embedData.html,
+            id: embedId,
+            link: apiUrl,
             options: embedOptions
         });
     }

@@ -31,12 +31,12 @@
     "embed"
   ],
   "dependencies": {
-    "unist-util-visit": "^2.0.0",
+    "unist-util-visit": "^2.0.2",
     "lodash": "4.17.15",
-    "handlebars": "^4.2.0",
+    "handlebars": "^4.7.6",
     "node-fetch": "^2.6.0",
     "cheerio": "^1.0.0-rc.3",
-    "parse-numeric-range": "^1.1.0",
+    "parse-numeric-range": "^1.2.0",
     "querystring": "^0.2.0"
   }
 }

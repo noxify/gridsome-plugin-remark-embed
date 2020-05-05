@@ -16,11 +16,8 @@ https://gridsome-preview.ilovenox.now.sh/
 * Giphy
 * Spotify - Ported from https://github.com/garetmckinley/gatsby-remark-embed-spotify
 * Vimeo
-* Flickr
 * Facebook Post
 * Facebook Video
-* Imgur
-* Instagram
 * CodeSandbox
 
 # Installation
@@ -67,11 +64,8 @@ module.exports = {
 | Giphy            | `Object` | Configuration for Provider: Giphy         | see [Giphy configuration](#giphy)                                                     | see [Giphy configuration](#giphy)           |
 | Spotify          | `Object` | Configuration for Provider: Spotify       | see [Spotify configuration](#spotify)                                                 | see [Spotify configuration](#spotify)       |
 | Vimeo            | `Object` | Configuration for Provider: Vimeo         | see [Vimeo configuration](#vimeo)                                                     | see [Vimeo configuration](#vimeo)           |
-| Flickr           | `Object` | Configuration for Provider: Flickr        | see [Flickr configuration](#flickr)                                                    | see [Flickr configuration](#flickr)         |
 | Facebook Post          | `Object` | Configuration for Provider: Facebook Post        | see [Facebook Post configuration](#facebook-post)                                                    | see [Facebook Posts configuration](#facebook-post)         |
 | Facebook Video           | `Object` | Configuration for Provider: Facebook Video        | see [Facebook Video configuration](#facebook-video)                                                    | see [Facebook Video configuration](#facebook-video)         |
-| Imgur           | `Object` | Configuration for Provider: Imgur        | see [Flickr configuration](#imgur)                                                    | see [Imgur configuration](#imgur)         |
-| Instagram           | `Object` | Configuration for Provider: Instagram        | see [Instagram configuration](#instagram)                                                    | see [Instagram configuration](#instagram)         |
 | CodeSandbox           | `Object` | Configuration for Provider: CodeSandbox        | see [CodeSandbox configuration](#codesandbox)                                                    | see [CodeSandbox configuration](#codesandbox)         |
 
 
@@ -226,14 +220,6 @@ https://<fiddleurl>?tabs=result,html
 | autoplay   | `boolean` | Start the video automatically                                  | `true`, `false` | `false` |
 | loop       | `boolean` | Run the video in a loop                                        | `true`, `false` | `false` |
 
-## Flickr
-
-| Name          | Type      | Description                                        | Allowed Values  | Default |
-| ------------- | --------- | -------------------------------------------------- | --------------- | ------- |
-| width         | `integer`  | Sets the maximum width for the embed               | `1024`          | `1024`  |
-| height        | `integer`  | Sets the maximum height for the embed              | `768`           | `768`   |
-| omitscript | `boolean` | Removes the `<script>` part from the response html | `true`, `false` | `true`  |
-
 ## Facebook Post
 
 | Name          | Type      | Description                                        | Allowed Values  | Default |
@@ -374,22 +360,6 @@ This is asset is only required when `responsive` is set to `true`.
 https://player.vimeo.com/api/player.js
 ```
 
-## Flickr
-
-By default the `omitscript` is set to `true`. 
-This means you have to embed by your own.
-
-URL:
-
-```
-https://embedr.flickr.com/assets/client-code.js
-```
-
-This is the default flickr script:
-```
-<script async src="https://embedr.flickr.com/assets/client-code.js" charset="utf-8"></script>
-```
-
 ## Facebook
 
 By default the `omitscript` is set to `true`. 
@@ -410,40 +380,6 @@ Example:
 }(document, 'script', 'facebook-jssdk'));
 </script>
 ```
-
-## Imgur
-
-By default the `omitscript` is set to `true`. 
-This means you have to embed by your own.
-
-URL:
-
-```
-//s.imgur.com/min/embed.js
-```
-
-This is the default imgur script:
-```
-<script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
-```
-
-## Instagram
-
-By default the `omitscript` is set to `true`. 
-This means you have to embed by your own.
-
-URL:
-
-```
-//www.instagram.com/embed.js
-```
-
-This is the default instagram script:
-
-```
-<script async src="//www.instagram.com/embed.js" charset="utf-8"></script>
-```
-
 
 # Alternatives
 
