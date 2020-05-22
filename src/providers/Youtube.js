@@ -4,8 +4,7 @@ const _ = require('lodash');
 class Youtube extends Provider {
     constructor(options) {
         super(options);
-        //this.regexp = /(?:https?:)?(?:\/\/)?(?:[0-9A-Z-]+\.)?(?:youtu\.be\/|youtube(?:-nocookie)?\.com\/\S*?[^\w\s-])((?!videoseries)[\w-]{11})(?=[^\w-]|$)(?![?=&+%\w.-]*(?:['"][^<>]*>|<\/a>))[?=&+%\w.-]*/i;
-        this.regexp = /(?:https?:\/\/)?(?:(?:(?:www\.?)?youtube(?:-nocookie)?\.com(?:\/(?:embed\/|watch\/|(?:playlist\?(?:list=))|(?:watch\?(?:v=))))?)|(?:youtu\.be\/?))(.*)/i;
+        this.regexp = /(?:https?:)?(?:\/\/)(?:www\.)?(?:(?:youtube(?:-nocookie)?\.com\/(?:(?:(?:watch|embed)(?:\?v=|\/)((?!videoseries)[\w-]{11}))|(?:playlist|embed\/videoseries)\?list=([\w-]{34}))|youtu.be\/([\w-]{11})))[?=&+%\w.-]*/i;
         this.template = __dirname+'/../templates/Youtube.hbs';
         this.idPosition = 1;
         const alignment = options.align || 'auto';
@@ -16,8 +15,13 @@ class Youtube extends Provider {
         });
     }
 
+    getEmbedId(url) {
+        const res = url.match(this.regexp).filter(x => undefined !== x );
+        return (res) ? res[this.idPosition] : false;
+    }
+
     isPlayList(embedLink) {
-        return embedLink.indexOf('playlist') !== -1;
+        return embedLink.includes('playlist') || embedLink.includes('videoseries');
     }
 
     async getEmbedData(embedLink) {
