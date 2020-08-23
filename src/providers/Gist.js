@@ -11,7 +11,9 @@ class Gist extends Provider {
         this.regexp = /https:\/\/gist.github.com\/(.*)\/([a-f0-9]+)/i;
         this.idPosition = 2;
         this.template = __dirname + '/../templates/Gist.hbs';
-        this.options = _.defaults(options, {});
+        this.options = _.defaults(options, {
+            omitStylesheet: true,
+        });
     }
 
     /**
@@ -101,6 +103,7 @@ class Gist extends Provider {
         const embedData = await response.json();
 
         let html = embedData.div;
+        let stylesheet = this.options.omitStylesheet ? "" : "<link rel='stylesheet' type='text/css' href='" + embedData.stylesheet + "' />";
         if (query.highlights.length > 0) {
             const $ = cheerio.load(embedData.div);
             const file = query.file.replace(/[^a-zA-Z0-9_]+/g, "-").toLowerCase();
@@ -116,7 +119,7 @@ class Gist extends Provider {
         return template({
             id: this.getEmbedId(embedLink),
             link: embedLink,
-            embedData: html == undefined ? '' : html.trim(),
+            embedData: html == undefined ? '' : html.trim() + stylesheet.trim(),
             options: this.options
         });
     }
