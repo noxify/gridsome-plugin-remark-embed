@@ -8,7 +8,7 @@ https://gridsome-preview.ilovenox.now.sh/
 # Installation
 
 ```bash
-npm install --save @jammeryhq/gridsome-plugin-remark-embed
+npm install --save @noxify/gridsome-plugin-remark-embed
 ```
 
 # How to use
@@ -24,7 +24,7 @@ module.exports = {
         route: '/blog/:year/:month/:day/:slug',
         remark: {
           plugins: [
-            [ '@jammeryhq/gridsome-plugin-remark-embed', {
+            [ '@noxify/gridsome-plugin-remark-embed', {
                 'enabledProviders' : ['Youtube', 'Twitter', 'Gist'],
             }]
           ]
